@@ -6,7 +6,7 @@
     <title>Your Account</title>
 </head>
 <body>
-<h1>Your Account</h1>
+<h2>Your Account</h2>
 <%
     BankAccount account = (BankAccount) session.getAttribute("account");
     if (account != null) {
@@ -14,7 +14,7 @@
 <p>Welcome, <%= account.getFirstName() %> <%= account.getLastName() %>!</p>
 <p>Your balance: $<%= account.getBalance() %></p>
 <h2>Transfer Money</h2>
-<form action="TransferServlet" method="post">
+<form action="account" method="post">
     <label for="toPhoneNumber">Recipient Phone Number:</label>
     <input type="text" id="toPhoneNumber" name="toPhoneNumber" required><br>
     <label for="amount">Amount:</label>
@@ -23,7 +23,7 @@
 </form>
 <%
     } else {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("/login");
     }
 %>
 </body>

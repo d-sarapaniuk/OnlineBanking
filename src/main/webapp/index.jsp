@@ -4,10 +4,10 @@
 </head>
 <body>
 <h1>Welcome to Online Banking</h1>
-<form action="signup.jsp" method="get">
+<form action="sign-up" method="get">
     <button type="submit">Sign Up</button>
 </form>
-<form action="login.jsp" method="get">
+<form action="login" method="get">
     <button type="submit">Login</button>
 </form>
 </body>

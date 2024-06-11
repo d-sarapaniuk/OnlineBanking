@@ -4,7 +4,7 @@
 </head>
 <body>
 <h1>Sign Up</h1>
-<form action="SignupServlet" method="post">
+<form action="sign-up" method="post">
     <label for="firstName">First Name:</label>
     <input type="text" id="firstName" name="firstName" required><br>
     <label for="lastName">Last Name:</label>

@@ -1,4 +1,5 @@
-package classes;
+import classes.BankAccount;
+import classes.Database;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,8 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/TransferServlet")
-public class TransferServlet extends HttpServlet {
+@WebServlet("/account")
+public class AccountServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("account.jsp").forward(request, response);
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -25,9 +31,10 @@ public class TransferServlet extends HttpServlet {
             if (toAccount != null && amount > 0 && fromAccount.getBalance() >= amount) {
                 fromAccount.transfer(toAccount, amount);
             }
-            response.sendRedirect("AccountServlet");
+            request.getRequestDispatcher("account.jsp").forward(request, response);
+
         } else {
-            response.sendRedirect("login.jsp");
+            request.getRequestDispatcher("/login").forward(request, response);
         }
     }
 }
