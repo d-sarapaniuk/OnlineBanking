@@ -1,4 +1,4 @@
-//import javax.servlet.*;
+package controller;//import javax.servlet.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +13,7 @@ public class MainServlet extends HttpServlet {
 
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //getServletContext().getRequestDispatcher("/mainpage.jsp").forward(request, response);
+        request.getSession().invalidate();
+        response.sendRedirect("/");
     }
 }

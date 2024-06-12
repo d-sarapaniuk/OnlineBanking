@@ -1,4 +1,4 @@
-<%@ page import="java.util.*,classes.BankAccount,classes.Database" %>
+<%@ page import="java.util.*,model.BankAccount,model.Database" %>
 <%@ page session="true" %>
 <!DOCTYPE html>
 <html>
@@ -21,8 +21,13 @@
     <input type="number" id="amount" name="amount" step="0.01" required><br>
     <button type="submit">Transfer</button>
 </form>
+
+<form action="mainpage" method="get">
+    <button type="submit">Log out</button>
+</form>
 <%
-    } else {
+    }
+    else {
         response.sendRedirect("/login");
     }
 %>

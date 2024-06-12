@@ -1,14 +1,13 @@
-package classes;
+package model;
 
 import java.util.HashMap;
-import java.util.prefs.BackingStoreException;
 
 public class Database {
     private static Database instance;
     private HashMap<String, BankAccount> bankAccounts = new HashMap<String, BankAccount>();
 
     private Database(){
-        BankAccount testAccount = new BankAccount("1", "1", "1", "1", 12);
+        BankAccount testAccount = new BankAccount("test", "test", "0", "0", 100);
         bankAccounts.put(testAccount.getPhoneNumber(), testAccount);
     };
     public static Database getInstance(){

@@ -1,8 +1,9 @@
-import classes.BankAccount;
-import classes.Database;
+package controller;
+
+import model.BankAccount;
+import model.Database;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

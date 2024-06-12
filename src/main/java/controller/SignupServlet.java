@@ -1,5 +1,7 @@
-import classes.BankAccount;
-import classes.Database;
+package controller;
+
+import model.BankAccount;
+import model.Database;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
