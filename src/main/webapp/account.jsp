@@ -1,4 +1,4 @@
-<%@ page import="java.util.*,model.BankAccount,model.Database" %>
+<%@ page import="model.BankAccount" %>
 <%@ page session="true" %>
 <!DOCTYPE html>
 <html>
@@ -6,11 +6,13 @@
     <title>Your Account</title>
 </head>
 <body>
-<h2>Your Account</h2>
+<h1>Your Account</h1>
+
 <%
     BankAccount account = (BankAccount) session.getAttribute("account");
     if (account != null) {
 %>
+
 <p>Welcome, <%= account.getFirstName() %> <%= account.getLastName() %>!</p>
 <p>Your balance: $<%= account.getBalance() %></p>
 <h2>Transfer Money</h2>
@@ -22,13 +24,13 @@
     <button type="submit">Transfer</button>
 </form>
 
-<form action="mainpage" method="get">
+<form action="/" method="get">
     <button type="submit">Log out</button>
 </form>
+
 <%
-    }
-    else {
-        response.sendRedirect("/login");
+    } else {
+        response.sendRedirect("login");
     }
 %>
 </body>

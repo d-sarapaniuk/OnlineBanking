@@ -16,7 +16,14 @@ public class AccountServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("account.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        BankAccount account = (BankAccount) session.getAttribute("account");
+
+        if (account != null) {
+            request.getRequestDispatcher("account.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("login");
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,7 +43,7 @@ public class AccountServlet extends HttpServlet {
             request.getRequestDispatcher("account.jsp").forward(request, response);
 
         } else {
-            request.getRequestDispatcher("/login").forward(request, response);
+            request.getRequestDispatcher("login").forward(request, response);
         }
     }
 }
